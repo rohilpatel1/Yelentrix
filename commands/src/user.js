@@ -28,12 +28,12 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 		return;
 	}
 	let meEmbed = new MessageEmbed()
-		.setTitle(mention.user.username)
+		.setTitle(`${mention.user.username}'s Financial Statistics`)
 		.setColor(color)
-		.setThumbnail(mention.user.avatarURL())
-		.addField('User Identification', mention.id)
+		.setThumbnail(mention.user.avatarURL());
+	/*.addField('User Identification', mention.id)
 		.addField('Joined Server', mention.joinedAt.toDateString())
-		.addField('Joined Discord', mention.user.createdAt.toDateString());
+		.addField('Joined Discord', mention.user.createdAt.toDateString());*/
 
 	const users = db.collection('users');
 	users
@@ -41,13 +41,17 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 		.get()
 		.then(doc => {
 			if (doc.exists) {
-				meEmbed.addField('Money', doc.data().money);
+				meEmbed
+					.addField('Money', `$${doc.data().money}`)
+					.addField('Most Recent Activity', doc.data().lastDailyReward);
 			} else {
-				return;
+				meEmbed.setDescription(
+					'This user has not registered for *The Money Game*! To start, type `./init`'
+				);
 			}
 		})
 		.then(_ => {
-			message.channel.send(meEmbed);
+		  message.channel.send(meEmbed);
 		})
 		.catch(err => {
 			console.log(err);
@@ -58,7 +62,7 @@ module.exports = {
 	run,
 	info: {
 		name: 'user',
-		value: '```Gives personal info on mentioned person```',
+		value: '```Gives financial info on mentioned person```',
 		inline: true
 	}
 };

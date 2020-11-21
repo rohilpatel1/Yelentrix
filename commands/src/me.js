@@ -15,12 +15,13 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 	}
 
 	let meEmbed = new MessageEmbed()
-		.setTitle(message.author.username)
+		.setTitle('Your Wealth Statistics')
 		.setColor(color)
-		.setThumbnail(message.author.avatarURL())
-		.addField('User Identification', message.author.id)
+		.setThumbnail(message.author.avatarURL());
+	/*.addField('User Identification', message.author.id)
 		.addField('Joined Server', message.member.joinedAt.toDateString())
-		.addField('Joined Discord', message.author.createdAt.toDateString());
+		.addField('Joined Discord', message.author.createdAt.toDateString())
+		*/
 
 	const users = db.collection('users');
 	users
@@ -28,9 +29,12 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 		.get()
 		.then(doc => {
 			if (doc.exists) {
-				meEmbed.addField('Money', doc.data().money);
+				meEmbed
+					.addField('Money', `$${doc.data().money}`)
+					.addField('Most Recent Activity', doc.data().lastDailyReward);
 			} else {
-				return;
+				meEmbed.setDescription('You have not registered for *The Money Game*! To start, type `./init`');
+				
 			}
 		})
 		.then(_ => {
@@ -45,7 +49,7 @@ module.exports = {
 	run,
 	info: {
 		name: 'me',
-		value: '```Gives personal info about yourself```',
+		value: '```Gives financial statistics about yourself```',
 		inline: true
 	}
 };

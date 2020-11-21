@@ -14,7 +14,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 module.exports = {
 	run,
 	info: {
-		command: '',
-		des: ''
+		name: '',
+		value: '```.```'
 	}
 };
