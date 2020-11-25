@@ -43,10 +43,11 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 			if (doc.exists) {
 				meEmbed
 					.addField('Money', `$${doc.data().money}`)
-					.addField('Most Recent Activity', doc.data().lastDailyReward);
+          .addField('Paycheck', `$${doc.data().moneyPerDay}/day`)
+          .addField('Most Recent Activity', doc.data().lastDailyReward)
 			} else {
 				meEmbed.setDescription(
-					'This user has not registered for *The Money Game*! To start, type `./init`'
+					'This user has not registered for *The Money Game*!'
 				);
 			}
 		})

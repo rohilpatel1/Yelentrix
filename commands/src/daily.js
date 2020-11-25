@@ -18,9 +18,9 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
   db.collection('users').doc(`${message.author.id}`).get().then(doc => {
     if (doc.exists) {
       if (doc.data().lastDailyReward == moment().format('L')) {
-        message.channel.send('You already collected your daily reward! Check back tomorrow for more points!')
+        message.channel.send('You already collected your daily reward! Check back at UTC +0!');
       } else {
-        let { moneyPerDay, money } = doc.data();
+        let { moneyPerDay, money  } = doc.data();
 
         db
         .collection('users')
@@ -34,7 +34,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
           let embed = new MessageEmbed()
             .setTitle(`${message.author.username}'s Balance`)
             .setColor(color)
-            .setDescription(`Congrats! You now have $${money}!`);
+            .setDescription(`Congrats! You now have $${money + moneyPerDay}!`);
 
           message.channel.send(embed);
         })

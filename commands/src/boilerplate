@@ -15,6 +15,7 @@ module.exports = {
 	run,
 	info: {
 		name: '',
-		value: '```.```'
+		value: '```.```',
+		inline: true
 	}
 };

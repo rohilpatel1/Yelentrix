@@ -15,7 +15,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 	}
 
 	let meEmbed = new MessageEmbed()
-		.setTitle('Your Wealth Statistics')
+		.setTitle('Your Financial Statistics')
 		.setColor(color)
 		.setThumbnail(message.author.avatarURL());
 	/*.addField('User Identification', message.author.id)
@@ -31,7 +31,8 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 			if (doc.exists) {
 				meEmbed
 					.addField('Money', `$${doc.data().money}`)
-					.addField('Most Recent Activity', doc.data().lastDailyReward);
+          .addField('Paycheck', `$${doc.data().moneyPerDay}/day`)
+          .addField('Most Recent Activity', doc.data().lastDailyReward)
 			} else {
 				meEmbed.setDescription('You have not registered for *The Money Game*! To start, type `./init`');
 				

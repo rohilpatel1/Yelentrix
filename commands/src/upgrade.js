@@ -61,7 +61,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
             .collection('users')
             .doc(`${message.author.id}`)
             .update({
-              moneyNeededToDouble: moneyNeededToDouble * 4,
+              moneyNeededToDouble: moneyNeededToDouble * 2,
               money: money - moneyNeededToDouble,
               moneyPerDay: moneyPerDay * 2
             })
@@ -78,7 +78,8 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 module.exports = {
 	run,
 	info: {
-		name: '',
-		value: ''
+		name: 'upgrade',
+		value: '```upgrade daily paycheck amount```',
+		inline: true
 	}
 };
