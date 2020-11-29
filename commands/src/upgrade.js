@@ -61,7 +61,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
             .collection('users')
             .doc(`${message.author.id}`)
             .update({
-              moneyNeededToDouble: moneyNeededToDouble * 2,
+              moneyNeededToDouble: moneyNeededToDouble * 3,
               money: money - moneyNeededToDouble,
               moneyPerDay: moneyPerDay * 2
             })
