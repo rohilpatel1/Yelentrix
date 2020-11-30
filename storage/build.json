@@ -1,6 +1,6 @@
 [
   {
-    "version": "3.0.1",
-    "description": "This update brings many bug fixes including an issue where users didn't know when the daily command would work, as well as a bug where there would be issues loading the user's command space. New invite command was added so users can invite the bot to their server, as well as more performance enhancements to the bot."
+    "version": "3.1",
+    "description": "This version of Yelentrix brings a new trivia feature along with other ways to get money. More bug fixes were applied. This update is optional to all users."
   }
 ]

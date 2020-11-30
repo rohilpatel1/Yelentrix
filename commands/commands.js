@@ -18,6 +18,7 @@ commandNames.forEach(name => {
 
 function Commands(message, MessageEmbed, DMChannel) {
 	if (!message.content.startsWith(prefix)) return;
+
 	const args = message.content
 		.slice(prefix.length)
 		.trim()
