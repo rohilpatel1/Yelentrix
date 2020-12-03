@@ -29,7 +29,9 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
     return;
   }
 
-  message.delete({ timeout: 500 });
+  message
+		.delete({ timeout: 500 })
+		.catch(_ => {});
 
   message.channel
     .send(
@@ -43,9 +45,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
         .send(`There is a surprise waiting for you in **${message.guild}**!`)
         .catch(_ => {});
     })
-    .catch(err => {
-      console.log(err);
-    });
+    .catch(err => {});
 };
 
 module.exports = {

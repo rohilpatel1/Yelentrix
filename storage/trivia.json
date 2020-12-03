@@ -1,111 +1,250 @@
 {
-  "easy": [
-      {
-        "question": "What is the world’s longest river called?",
-				"money": 5,
-        "answers": ["the nile", "nile"]
-      },
-			{
-        "question": "Where were the 2012 Olympics held?",
-				"money": 10,
-        "answers": ["england", "london"]
-      },
-			{
-        "question": "What state has the most covid cases?",
-				"money": 10,
-        "answers": ["california", "ca"]
-      },
-			{
-        "question": "What is sin^0(23209348π)",
-				"money": 20,
-        "answers": ["1"]
-      },
-			{
-        "question": "What is the owner of this bot's name?",
-				"money": 50,
-        "answers": ["rohil", "rohilpatel", "patel", "rohil patel"]
-      },
-			{
-        "question": "What is 20470/3*234/23?",
-				"money": 20,
-        "answers": ["69420", "69,420", "69 420"]
-      },
-			{
-        "question": "Who was the 4th president of the United States?",
-				"money": 35,
-        "answers": ["madison", "james", "james madison"]
-      },
-			{
-        "question": "What is the square root of x^2, where x < 0?",
-				"money": 15,
-        "answers": ["-x"]
-      },
-			{
-				"question": "What country is closest to France",
-				"money": 20,
-        "answers": ["Portugal"]
-			}
-    ],
-		"medium": [
-      {
-				"question": "Who is the CEO of Apple?",
-				"money": 50,
-        "answers": ["tim", "cook", "tim cook"]
-			},
-			{
-				"question": "When was the war of 1812?",
-				"money": 57,
-        "answers": ["1813"]
-			},
-			{
-				"question": "What does html stand for?",
-				"money": 75,
-        "answers": ["hyper text markup language"]
-			},
-			{
-				"question": "What is Rohil's IP",
-				"money": 85,
-        "answers": ["694.206.942.0"]
-			}
-    ],
-		"hard": [
-			{"question":"When was the first Call of Duty title released?",
-			"answers": ["october 29, 2003"],
+	"easy": [
+		{
+			"question": "What is the world’s longest river called?",
+			"money": 5,
+			"answers": [
+				"the nile",
+				"nile"
+			]
+		},
+		{
+			"question": "Where were the 2012 Olympics held?",
+			"money": 10,
+			"answers": [
+				"england",
+				"london"
+			]
+		},
+		{
+			"question": "What state has the most covid cases?",
+			"money": 10,
+			"answers": [
+				"california",
+				"ca"
+			]
+		},
+		{
+			"question": "What is sin^0(23209348π)",
+			"money": 20,
+			"answers": [
+				"1"
+			]
+		},
+		{
+			"question": "What is the owner of this bot's name?",
+			"money": 50,
+			"answers": [
+				"rohil",
+				"rohilpatel",
+				"patel",
+				"rohil patel"
+			]
+		},
+		{
+			"question": "What is 20470/3*234/23?",
+			"money": 20,
+			"answers": [
+				"69420",
+				"69,420",
+				"69 420"
+			]
+		},
+		{
+			"question": "Who was the 4th president of the United States?",
+			"money": 35,
+			"answers": [
+				"madison",
+				"james",
+				"james madison"
+			]
+		},
+		{
+			"question": "What is the square root of x^2, where x < 0?",
+			"money": 15,
+			"answers": [
+				"-x"
+			]
+		},
+		{
+			"question": "What country is closest to Spain",
+			"money": 20,
+			"answers": [
+				"portugal"
+			]
+		},
+		{
+			"question": "The ancient Roman god of war was commonly known as which of the following?",
+			"answers": "mars",
+			"money": 15
+		},
+		{
+			"question": "What does a funambulist walk on?",
+			"answers": [
+				"a tight rope"
+			],
+			"money": 25
+		},
+		{
+			"question": "The series of the Intel HD graphics generation succeeding that of the 5000 and 6000 series (Broadwell) is called:",
+			"answers": [
+				"hd graphics 500"
+			],
+			"money": 27
+		}
+	],
+	"medium": [
+		{
+			"question": "Who is the CEO of Apple?",
+			"money": 50,
+			"answers": [
+				"tim",
+				"cook",
+				"tim cook"
+			]
+		},
+		{
+			"question": "When was the war of 1812?",
+			"money": 57,
+			"answers": [
+				"1813"
+			]
+		},
+		{
+			"question": "What does html stand for?",
+			"money": 75,
+			"answers": [
+				"hyper text markup language"
+			]
+		},
+		{
+			"question": "What is Rohil's IP",
+			"money": 85,
+			"answers": [
+				"694.206.942.0"
+			]
+		},
+		{
+			"question": "Which city is the capital of Switzerland?",
+			"answers": [
+				"bern"
+			],
+			"money": 80
+		},
+		{
+			"question": "What does the 'G' mean in 'G-Man'?",
+			"answers": [
+				"government"
+			],
+			"money": 54
+		},
+		{
+			"question": "Which of the following Assyrian kings did NOT rule during the Neo-Assyrian Empire?",
+			"answers": [
+				"shamshi-adad iii"
+			],
+			"money": 35
+		},
+		{
+			"question": "The board game, Nightmare was released in what year?",
+			"answers": [
+				"1991"
+			],
+			"money": 84
+		},
+		{
+			"question": "Vietnam is the only country in the world that starts with V. ",
+			"answers": [
+				"false"
+			],
+			"money": 75
+		},
+		{
+			"question": "Which iconic album cover features the pulsar waves of CP 1919 placed in the center of the cover?",
+			"answers": [
+				"unknown pleasures"
+			],
+			"money": 85
+		},
+		{
+			"question": "The towns of Brugelette, Arlon and Ath are located in which country?",
+			"answers": [
+				"belgium"
+			],
+			"money": 95
+		},
+		{
+			"question": "Which of the following carbonated soft drinks were introduced first?",
+			"answers": [
+				"dr. pepper"
+			],
+			"money": 122
+		},
+		{
+			"question": "What is the item required to summon the boss Duke Fishron in the game Terraria?",
+			"answers": [
+				"truffle worm"
+			],
+			"money": 254
+		}
+	],
+	"hard": [
+		{
+			"question": "When was the first Call of Duty title released?",
+			"answers": [
+				"october 29, 2003"
+			],
 			"money": 430
-			},
-			{
-				"question":"What was the code name given to Sonic the Hedgehog 4 during its development?","answers": ["project needlemouse"],
-				"money": 423
-			},
-			{
-				"question":"Electronic music producer Kygos popularity skyrocketed after a certain remix. Which song did he remix?",
-				 "answers": ["ed sheeran - i see fire"],
-				 "money": 423
-			},
-			{
-				"question":"In which city, is the Big Nickel located in Canada?",
-				"answers":["sudbury, ontario", "ontario"],
-				"money": 242
-			},
-			{
-				"question":"What musical term is indicates a chord where the notes are played one after another rather than all together?",
-				"answers":["arpeggio"],
-				"money": 234
-			},
-			{
-				"question":"What musical term is indicates a chord where the notes are played one after another rather than all together?",
-				"answers":["arpeggio"],
-				"money": 234
-			},
-			{
-				"question":"In which sport are barani, rudolph and randolph all techniques?",
-				"answers":["trampolining"],
-				"money": 431
-			},
-			{
-				"question":"What color does gold leaf appear if you hold it up to the light?",
-				"answers":["green"],
-				"money": 431
-			}
-		]
+		},
+		{
+			"question": "What was the code name given to Sonic the Hedgehog 4 during its development?",
+			"answers": [
+				"project needlemouse"
+			],
+			"money": 423
+		},
+		{
+			"question": "Electronic music producer Kygos popularity skyrocketed after a certain remix. Which song did he remix?",
+			"answers": [
+				"ed sheeran - i see fire"
+			],
+			"money": 423
+		},
+		{
+			"question": "In which city, is the Big Nickel located in Canada?",
+			"answers": [
+				"sudbury, ontario",
+				"ontario"
+			],
+			"money": 242
+		},
+		{
+			"question": "What musical term is indicates a chord where the notes are played one after another rather than all together?",
+			"answers": [
+				"arpeggio"
+			],
+			"money": 234
+		},
+		{
+			"question": "What musical term is indicates a chord where the notes are played one after another rather than all together?",
+			"answers": [
+				"arpeggio"
+			],
+			"money": 234
+		},
+		{
+			"question": "In which sport are barani, rudolph and randolph all techniques?",
+			"answers": [
+				"trampolining"
+			],
+			"money": 431
+		},
+		{
+			"question": "What color does gold leaf appear if you hold it up to the light?",
+			"answers": [
+				"green"
+			],
+			"money": 431
+		}
+	]
 }

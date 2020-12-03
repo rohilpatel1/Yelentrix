@@ -1,0 +1,46 @@
+{
+	"question": "Which city is the capital of Switzerland?",
+	"answers": ["bern"],
+	"money": 80
+},
+{
+	"question": "What does the 'G' mean in 'G-Man'?",
+	"answers":["government"],
+	"money": 54
+},
+{
+	"question": "Which of the following Assyrian kings did NOT rule during the Neo-Assyrian Empire?",
+	"answers": ["shamshi-adad iii"],
+	"money": 35
+},
+{
+	"question": "The board game, Nightmare was released in what year?",
+	"answers": ["1991"],
+	"money": 84,
+	"money": 35
+},
+{
+	"question": "Vietnam is the only country in the world that starts with V. ",
+	"answers": ["false"],
+	"money": 75
+},
+{
+	"question": "Which iconic album cover features the pulsar waves of CP 1919 placed in the center of the cover?",
+	"answers": ["unknown pleasures"],
+	"money": 85
+},
+{
+	"question": "The towns of Brugelette, Arlon and Ath are located in which country?",
+	"answers": ["belgium"],
+	"money": 95
+},
+{
+	"question": "Which of the following carbonated soft drinks were introduced first?",
+	"answers": ["dr. pepper"],
+	"money": 122
+},
+{
+	"question": "What is the item required to summon the boss Duke Fishron in the game Terraria?",
+	"answers": ["truffle worm"],
+	"money": 254
+},
