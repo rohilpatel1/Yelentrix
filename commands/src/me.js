@@ -2,7 +2,13 @@ const { color } = require('../../storage/globals.json');
 
 const admin = require('firebase-admin');
 
+const addCommas = require('./helpers/commas');
+
 const db = admin.firestore();
+
+function captureImage(name) {
+	return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
+};
 
 const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 	if (message.channel instanceof DMChannel) {
@@ -18,10 +24,6 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 		.setTitle('Your Financial Statistics')
 		.setColor(color)
 		.setThumbnail(message.author.avatarURL());
-	/*.addField('User Identification', message.author.id)
-		.addField('Joined Server', message.member.joinedAt.toDateString())
-		.addField('Joined Discord', message.author.createdAt.toDateString())
-		*/
 
 	const users = db.collection('users');
 	users
@@ -30,12 +32,14 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 		.then(doc => {
 			if (doc.exists) {
 				meEmbed
-					.addField('Money', `$${doc.data().money}`)
-          .addField('Paycheck', `$${doc.data().moneyPerDay}/day`)
-          .addField('Most Recent Activity', doc.data().lastDailyReward)
+					.addField('Money', `$${addCommas(doc.data().money)}`)
+					.addField('Paycheck', `$${addCommas(doc.data().moneyPerDay)}/day`)
+					.addField('Most Recent Activity', doc.data().lastDailyReward)
+					.setFooter('Yelentrix', captureImage('yelentrix'))
+					.setTimestamp()
 			} else {
 				meEmbed.setDescription('You have not registered for *The Money Game*! To start, type `./init`');
-				
+
 			}
 		})
 		.then(_ => {

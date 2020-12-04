@@ -1,5 +1,7 @@
 const { Client, MessageEmbed, DMChannel } = require('discord.js');
 
+const { version } = require('./storage/build.json')[0];
+
 const { token } = process.env;
 
 require('./firebase/firebase');
@@ -10,7 +12,7 @@ client.on('ready', _ => {
 	client.user.setPresence({
 		status: 'dnd',
 		activity: {
-			name: './help',
+			name: `./help | v${version}`,
 			type: 'LISTENING'
 		}
 	});

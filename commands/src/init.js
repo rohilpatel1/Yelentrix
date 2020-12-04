@@ -5,6 +5,10 @@ const moment = require('moment');
 
 const db = admin.firestore();
 
+function captureImage(name) {
+		return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
+	};
+
 const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
   if (message.channel instanceof DMChannel) {
     message.channel

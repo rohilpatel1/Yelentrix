@@ -1,5 +1,10 @@
 const { color } = require('../../storage/globals.json');
 
+function captureImage(name) {
+		return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
+	
+};
+
 const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
   if (message.channel instanceof DMChannel) {
     message.channel
@@ -13,9 +18,13 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
   if (!args[0]) {
     let insultE = new MessageEmbed()
       .setTitle('Showing help for ./insult')
-      .setDescription('Insult a member anonymously')
-      .addField('Syntax', 'insult [member] [insult]')
-      .setColor(color);
+      .setDescription(`
+			Insult a member anonymously
+			\`\`\`css\n ./insult [user] [insult] \`\`\`
+			`)
+      .setColor(color)
+			.setFooter('Yelentrix', captureImage('yelentrix'))
+			.setTimestamp();
 
     message.channel.send(insultE);
 
@@ -52,7 +61,7 @@ module.exports = {
   run,
   info: {
     name: 'insult',
-    value: '```replaces your insult with an anonymous message to insult specified user```',
+    value: '```Makes anonymous insult and shares anonymously```',
     inline: true
   }
 };

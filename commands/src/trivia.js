@@ -7,6 +7,10 @@ const admin = require('firebase-admin');
 
 const db = admin.firestore();
 
+function captureImage(name) {
+		return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
+};
+
 const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 	if (message.channel instanceof DMChannel) {
 		message.channel
@@ -21,8 +25,11 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 		let triviaEmbed = new MessageEmbed()
 			.setTitle('./trivia')
 			.setColor(color)
-			.setDescription('Deals trivia to anyone who wants more money')
-			.addField('Syntax', './trivia [difficulty]');
+			.setDescription(`Deals trivia to anyone who wants more money
+			\`\`\`css\n ./trivia [difficulty] \`\`\`
+			`)
+			.setFooter('Yelentrix', captureImage('yelentrix'))
+			.setTimestamp()
 
 		message.channel.send(triviaEmbed);
 
@@ -144,8 +151,8 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 
 			break;
 		case 'hard':
-			item = triviaQuestions.hard[Math.floor(Math.random() * triviaQuestions.medium.length)];
-
+			item = triviaQuestions.hard[Math.floor(Math.random() * triviaQuestions.hard.length)];
+			
 			filter = response => {
 				return item.answers.some(answer => answer.toLowerCase() == response.content.toLowerCase());
 			};
@@ -209,7 +216,7 @@ module.exports = {
 	run,
 	info: {
 		name: 'trivia',
-		value: '```Allows users to gamble money by answering questions```',
+		value: '```Earn quick money by answering questions```',
 		inline: true
 	}
 };

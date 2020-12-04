@@ -1,6 +1,12 @@
 const { color } = require('../../storage/globals.json');
 const admin = require('firebase-admin');
 
+const addCommas = require('./helpers/commas');
+
+function captureImage(name) {
+		return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
+	};
+
 const db = admin.firestore();
 
 const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
@@ -19,10 +25,13 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 		const userPreview = new MessageEmbed()
 			.setTitle('./user')
 			.setDescription(
-				'Gives information about a user, including join dates of Discord and server.'
+				`Gives financial statistics about a given user
+				\`\`\`css\n ./user [mention] \`\`\`
+				`
 			)
 			.setColor(color)
-			.addField('Syntax', './user [user]');
+			.setTimestamp()
+			.setFooter('Yelentrix', captureImage('yelentrix'))
 		message.channel.send(userPreview);
 
 		return;
@@ -42,8 +51,8 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 		.then(doc => {
 			if (doc.exists) {
 				meEmbed
-					.addField('Money', `$${doc.data().money}`)
-          .addField('Paycheck', `$${doc.data().moneyPerDay}/day`)
+					.addField('Money', `$${addCommas(doc.data().money)}`)
+          .addField('Paycheck', `$${addCommas(doc.data().moneyPerDay)}/day`)
           .addField('Most Recent Activity', doc.data().lastDailyReward)
 			} else {
 				meEmbed.setDescription(

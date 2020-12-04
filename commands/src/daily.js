@@ -1,5 +1,11 @@
 const { color } = require('../../storage/globals.json');
 
+const addCommas = require('./helpers/commas');
+
+function captureImage(name) {
+		return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
+	};
+
 const moment = require('moment');
 
 const admin = require('firebase-admin');
@@ -34,7 +40,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
           let embed = new MessageEmbed()
             .setTitle(`${message.author.username}'s Balance`)
             .setColor(color)
-            .setDescription(`Congrats! You now have $${money + moneyPerDay}!`);
+            .setDescription(`Congrats! You now have $${addCommas(money + moneyPerDay)}!`);
 
           message.channel.send(embed);
         })

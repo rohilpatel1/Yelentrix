@@ -1,5 +1,9 @@
 const { color } = require('../../storage/globals.json');
 
+function captureImage(name) {
+	return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
+};
+
 const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
   if (message.channel instanceof DMChannel) {
 	  message.channel
@@ -15,6 +19,8 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 		.setColor(color)
 		.setDescription('Use the following link to invite Yelentrix to your server!')
 		.addField('Link', 'https://discord.com/api/oauth2/authorize?client_id=777667558169116703&permissions=8&scope=bot')
+		.setFooter('Yelentrix', captureImage('yelentrix'))
+		.setTimestamp()
 
 	message.channel.send(InviteEmbed);
 };
