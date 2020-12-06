@@ -33,7 +33,7 @@ function Commands(message, MessageEmbed, DMChannel) {
 			message,
 			args,
 			MessageEmbed,
-			commandData,
+			[...commandData],
 			args2,
 			DMChannel
 		);
