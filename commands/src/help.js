@@ -1,8 +1,6 @@
 const { color } = require('../../storage/globals.json');
 
-function captureImage(name) {
-	return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
-};
+const captureImage = require('./helpers/captureImage');
 
 const run = (message, args, MessageEmbed, commandData, args2, DMChannel) => {
 	if (message.channel instanceof DMChannel) {
@@ -18,8 +16,9 @@ const run = (message, args, MessageEmbed, commandData, args2, DMChannel) => {
 		.setTitle('Showing Help Menu For Yelentrix')
 		.setDescription('The command syntax is in the form: \n ```css\n ./[command] [argument] [argument] [arguments...``` ')
 		.setColor(color)
-		.setFooter('Yelentrix', captureImage('yelentrix'))
+		.setFooter('Yelentrix', captureImage('yelentrix2'))
 		.setTimestamp()
+		
 
 	commandData.splice(0, 1);
 	commandData.splice(7, 1);

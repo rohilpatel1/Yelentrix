@@ -7,9 +7,7 @@ const admin = require('firebase-admin');
 
 const db = admin.firestore();
 
-function captureImage(name) {
-		return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
-};
+const captureImage = require('./helpers/captureImage');
 
 const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 	if (message.channel instanceof DMChannel) {
@@ -28,7 +26,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 			.setDescription(`Deals trivia to anyone who wants more money
 			\`\`\`css\n ./trivia [difficulty] \`\`\`
 			`)
-			.setFooter('Yelentrix', captureImage('yelentrix'))
+			.setFooter('Yelentrix', captureImage('yelentrix2'))
 			.setTimestamp()
 
 		message.channel.send(triviaEmbed);

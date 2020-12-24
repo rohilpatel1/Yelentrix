@@ -3,9 +3,7 @@ const admin = require('firebase-admin');
 
 const addCommas = require('./helpers/commas');
 
-function captureImage(name) {
-		return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
-	};
+const captureImage = require('./helpers/captureImage');
 
 const db = admin.firestore();
 
@@ -31,7 +29,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 			)
 			.setColor(color)
 			.setTimestamp()
-			.setFooter('Yelentrix', captureImage('yelentrix'))
+			.setFooter('Yelentrix', captureImage('yelentrix2'))
 		message.channel.send(userPreview);
 
 		return;

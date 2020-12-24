@@ -1,8 +1,6 @@
 const { color } = require('../../storage/globals.json');
 
-function captureImage(name) {
-	return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
-};
+const captureImage = require('./helpers/captureImage');
 
 const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
   if (message.channel instanceof DMChannel) {
@@ -20,7 +18,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 	  .addField('./invite', 'Provides invite to bot')
 	  .setColor(color)
 	  .setTimestamp()
-	  .setFooter('Yelentrix', captureImage('yelentrix'))
+	  .setFooter('Yelentrix', captureImage('yelentrix2'))
 	
 	message.channel.send(moreEmbed);
 };

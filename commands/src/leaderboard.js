@@ -2,9 +2,7 @@ const { color } = require('../../storage/globals.json');
 
 const addCommas = require('./helpers/commas');
 
-function captureImage(name) {
-		return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
-};
+const captureImage = require('./helpers/captureImage');
 
 const admin = require('firebase-admin');
 
@@ -38,7 +36,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 				.setDescription('Below you will find the top 10 richest people!')
 				.setColor(color)
 				.setTimestamp()
-				.setFooter('Yelentrix', captureImage('yelentrix'))
+				.setFooter('Yelentrix', captureImage('yelentrix2'))
 
 			for (let i = 0; i < 10; i++) {
 				leaderboardEmbed.addField(

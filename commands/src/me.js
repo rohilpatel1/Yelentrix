@@ -6,9 +6,7 @@ const addCommas = require('./helpers/commas');
 
 const db = admin.firestore();
 
-function captureImage(name) {
-	return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
-};
+const captureImage = require('./helpers/captureImage');
 
 const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 	if (message.channel instanceof DMChannel) {
@@ -35,7 +33,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 					.addField('Money', `$${addCommas(doc.data().money)}`)
 					.addField('Paycheck', `$${addCommas(doc.data().moneyPerDay)}/day`)
 					.addField('Most Recent Activity', doc.data().lastDailyReward)
-					.setFooter('Yelentrix', captureImage('yelentrix'))
+					.setFooter('Yelentrix', captureImage('yelentrix2'))
 					.setTimestamp()
 			} else {
 				meEmbed.setDescription('You have not registered for *The Money Game*! To start, type `./init`');

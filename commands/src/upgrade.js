@@ -3,9 +3,7 @@ const admin = require('firebase-admin');
 
 const addCommas = require('./helpers/commas');
 
-function captureImage(name) {
-	return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
-}
+const captureImage = require('./helpers/captureImage');
 
 const db = admin.firestore();
 
@@ -23,7 +21,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 		const upgradePreview = new MessageEmbed()
 			.setTitle('Personal Upgrade Plans')
 			.setColor(color)
-			.setFooter('Yelentrix', captureImage('yelentrix'))
+			.setFooter('Yelentrix', captureImage('yelentrix2'))
 			.setTimestamp();
 
 		db.collection('users')

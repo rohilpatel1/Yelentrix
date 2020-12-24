@@ -1,9 +1,7 @@
 const { color } = require('../../storage/globals.json');
 const { version, description } = require('../../storage/build.json')[0];
 
-function captureImage(name) {
-		return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
-	};
+const captureImage = require('./helpers/captureImage');
 
 const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 	if (message.channel instanceof DMChannel) {
@@ -19,7 +17,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 		.setTitle(`Version ${version}`)
 		.setDescription(description)
 		.setColor(color)
-		.setFooter('Yelentrix', captureImage('yelentrix'))
+		.setFooter('Yelentrix', captureImage('yelentrix2'))
 		.setTimestamp()
 
 	message.channel.send(versionEmbed);

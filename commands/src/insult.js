@@ -1,9 +1,6 @@
 const { color } = require('../../storage/globals.json');
 
-function captureImage(name) {
-		return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
-	
-};
+const captureImage = require('./helpers/captureImage');
 
 const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
   if (message.channel instanceof DMChannel) {
@@ -23,7 +20,7 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 			\`\`\`css\n ./insult [user] [insult] \`\`\`
 			`)
       .setColor(color)
-			.setFooter('Yelentrix', captureImage('yelentrix'))
+			.setFooter('Yelentrix', captureImage('yelentrix2'))
 			.setTimestamp();
 
     message.channel.send(insultE);

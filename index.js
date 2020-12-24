@@ -8,6 +8,10 @@ require('./firebase/firebase');
 
 const client = new Client();
 
+client.on("unhandledRejection", err => {
+	console.log(err);
+});
+
 client.on('ready', _ => {
 	client.user.setPresence({
 		status: 'dnd',
