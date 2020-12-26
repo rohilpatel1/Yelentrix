@@ -2,14 +2,11 @@ const { color } = require('../../storage/globals.json');
 
 const captureImage = require('./helpers/captureImage');
 
-const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
+const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
   if (message.channel instanceof DMChannel) {
-    message.channel
-      .send(
-        'Commands for this bot may not be used inside of a Direct Messages!'
-      )
+    return message.channel
+      .send('Commands for this bot may not be used inside of a Direct Messages!')
       .catch(console.error);
-    return;
   }
 
   if (!args[0]) {
@@ -23,35 +20,25 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 			.setFooter('Yelentrix', captureImage('yelentrix2'))
 			.setTimestamp();
 
-    message.channel.send(insultE);
-
-    return;
+    return message.channel.send(insultE);
   }
+
   const user = message.mentions.users.first();
   const mention = message.guild.member(user);
 
-  if (!user) {
-    message.channel.send('You need to mention a user!');
-    return;
-  }
+  if (!user) return message.channel.send('You need to mention a user!');
 
-  message
-		.delete({ timeout: 500 })
-		.catch(_ => {});
+	if (!args[1]) return message.channel.send('You need to send a message!');
 
-  message.channel
-    .send(
-      `<@${user.id}>, someone has a surprise for you:` +
-      '```' +
-      args.slice(1).join(' ') +
-      '```'
-    )
-    .then(_ => {
-      user
-        .send(`There is a surprise waiting for you in **${message.guild}**!`)
-        .catch(_ => {});
-    })
-    .catch(err => {});
+  message.delete({ timeout: 500 }).catch(_ => {});
+
+  let res = await message.channel.send(`<@${user.id}>, someone has a surprise for you: \n\n Reveal It Here → ||${args.slice(1).join(' ')}||`).catch(err => {});
+
+	if (!res) {
+		return message.channel.send('An error has occured! Please try again later.')
+	}
+
+	user.send(`There is a surprise waiting for you in **${message.guild}**!`).catch(_ => {});
 };
 
 module.exports = {

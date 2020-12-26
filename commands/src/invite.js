@@ -4,12 +4,9 @@ const captureImage = require('./helpers/captureImage');
 
 const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
   if (message.channel instanceof DMChannel) {
-	  message.channel
-			.send(
-				'Commands for this bot may not be used inside of a Direct Messages!'
-			)
+	  return message.channel
+			.send('Commands for this bot may not be used inside of a Direct Messages!')
 			.catch(console.error);
-	  return;
 	}
 
 	let InviteEmbed = new MessageEmbed()

@@ -7,7 +7,7 @@ const captureImage = require('./helpers/captureImage');
 
 const db = admin.firestore();
 
-const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
+const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
 	if (message.channel instanceof DMChannel) {
 		message.channel
 			.send(
@@ -38,32 +38,18 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 		.setTitle(`${mention.user.username}'s Financial Statistics`)
 		.setColor(color)
 		.setThumbnail(mention.user.avatarURL());
-	/*.addField('User Identification', mention.id)
-		.addField('Joined Server', mention.joinedAt.toDateString())
-		.addField('Joined Discord', mention.user.createdAt.toDateString());*/
 
 	const users = db.collection('users');
-	users
-		.doc(`${mention.id}`)
-		.get()
-		.then(doc => {
-			if (doc.exists) {
-				meEmbed
-					.addField('Money', `$${addCommas(doc.data().money)}`)
-          .addField('Paycheck', `$${addCommas(doc.data().moneyPerDay)}/day`)
-          .addField('Most Recent Activity', doc.data().lastDailyReward)
-			} else {
-				meEmbed.setDescription(
-					'This user has not registered for *The Money Game*!'
-				);
-			}
-		})
-		.then(_ => {
-		  message.channel.send(meEmbed);
-		})
-		.catch(err => {
-			console.log(err);
-		});
+	const doc = await users.doc(`${mention.id}`).get().catch(console.log)
+	if (doc.exists) {
+		meEmbed
+			.addField('Money', `$${addCommas(doc.data().money)}`)
+			.addField('Paycheck', `$${addCommas(doc.data().moneyPerDay)}/day`)
+			.addField('Most Recent Activity', doc.data().lastDailyReward)
+	} else {
+		meEmbed.setDescription('This user has not registered for *The Money Game*!');
+	}
+		message.channel.send(meEmbed);
 };
 
 module.exports = {
