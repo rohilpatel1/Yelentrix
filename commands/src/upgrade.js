@@ -7,14 +7,11 @@ const captureImage = require('./helpers/captureImage');
 
 const db = admin.firestore();
 
-const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
+const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
 	if (message.channel instanceof DMChannel) {
-		message.channel
-			.send(
-				'Commands for this bot may not be used inside of a Direct Messages!'
-			)
+		return message.channel
+			.send('Commands for this bot may not be used inside of a Direct Messages!')
 			.catch(console.error);
-		return;
 	}
 
 	if (!args[0]) {
@@ -24,67 +21,41 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 			.setFooter('Yelentrix', captureImage('yelentrix2'))
 			.setTimestamp();
 
-		db.collection('users')
-			.doc(`${message.author.id}`)
-			.get()
-			.then(doc => {
-				if (doc.exists) {
-					let { moneyNeededToDouble, money } = doc.data();
+		let doc = await db.collection('users').doc(`${message.author.id}`).get().catch(console.log);
 
-					if (money >= moneyNeededToDouble) {
-						upgradePreview.setDescription(
-							`You have $${addCommas(money)}. To upgrade your daily paycheck, you can spend $${addCommas(moneyNeededToDouble)} by entering the command ` +
-								'`./upgrade confirm`' +
-								'!'
-						);
-					} else {
-						upgradePreview.setDescription(
-							`You have $${addCommas(money)}, and to upgrade your daily paycheck, you must have $${addCommas(moneyNeededToDouble)}`
-						);
-					}
-				} else {
-					upgradePreview.setDescription(
-						'You are not a member of *The Money Game*! Run `./init` to add yourself!'
-					);
-				}
+		if (doc.exists) {
+			let { moneyNeededToDouble, money } = doc.data();
 
-				message.channel.send(upgradePreview);
-			})
-			.catch(console.error);
+			if (money >= moneyNeededToDouble) {
+				upgradePreview.setDescription(`You have $${addCommas(money)}. To upgrade your daily paycheck, you can spend $${addCommas(moneyNeededToDouble)} by entering the command ` + '`./upgrade confirm`' +'!');
+			} else {
+				upgradePreview.setDescription(`You have $${addCommas(money)}, and to upgrade your daily paycheck, you must have $${addCommas(moneyNeededToDouble)}`);
+			}
+		} else {
+			upgradePreview.setDescription('You are not a member of *The Money Game*! Run `./init` to add yourself!');
+		}
 
-		return;
+		return message.channel.send(upgradePreview);
 	}
 
 	if (args[0] == 'confirm') {
-		db.collection('users')
-			.doc(`${message.author.id}`)
-			.get()
-			.then(doc => {
-				let { moneyNeededToDouble, money, moneyPerDay } = doc.data();
+		let document = await db.collection('users').doc(`${message.author.id}`).get().catch(console.log);
 
-				if (moneyNeededToDouble > money) {
-					message.channel.send(
-						"You don't have the funds necessary to uprade your paycheck. Enter `./upgrade` for more details."
-					);
+		let { moneyNeededToDouble, money, moneyPerDay } = document.data();
 
-					return;
-				} else {
-					db.collection('users')
-						.doc(`${message.author.id}`)
-						.update({
-							moneyNeededToDouble: moneyNeededToDouble * 3,
-							money: money - moneyNeededToDouble,
-							moneyPerDay: moneyPerDay * 2
-						})
-						.then(_ => {
-							message.channel.send(
-								`Congrats! Each day, you now earn $${moneyPerDay * 2}! `
-							);
-						})
-						.catch(console.error);
-				}
-			})
-			.catch(console.error);
+		if (moneyNeededToDouble > money) {
+			return message.channel.send("You don't have the funds necessary to uprade your paycheck. Enter `./upgrade` for more details.");
+		} else {
+			let res = await db.collection('users').doc(`${message.author.id}`).update({
+				moneyNeededToDouble: moneyNeededToDouble * 3,
+				money: money - moneyNeededToDouble,
+				moneyPerDay: moneyPerDay * 2
+			});
+
+			if (!res) return message.channel.send('An error occured. Please try again later!')
+			
+			message.channel.send(`Congrats! Each day, you now earn $${moneyPerDay * 2}! `)
+		}
 	}
 };
 

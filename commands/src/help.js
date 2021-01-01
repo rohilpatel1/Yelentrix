@@ -53,7 +53,7 @@ const run = (message, args, MessageEmbed, commandData, args2, DMChannel) => {
 
 			tempEmbed = [];
 
-			validSpots = [1, 2, 5, 9, 10, 5, 6, 7, 11, 12]
+			validSpots = [1, 2, 5, 9, 10, 6, 7, 11, 12]
 
 			for (let i = 0; i < validSpots.length; i++) {
 				tempEmbed.push(commandData[validSpots[i]]);
@@ -68,7 +68,7 @@ const run = (message, args, MessageEmbed, commandData, args2, DMChannel) => {
 			const devEmbed = new MessageEmbed()
 				.setTitle('Showing List of Developer Commands for Yelentrix')
 				.setColor(color)
-				.setDescription('Below you can find a list of commands for the game section');
+				.setDescription('Below you can find a list of commands for the developer section');
 
 			tempEmbed = [];
 

@@ -28,7 +28,7 @@ const run = async (message, args, MessageEmbed, _, args2, DMChannel) => {
 		message.channel.send(givePreview);
 	}
 
-	let random = Math.floor(Math.random() * 4) + 1;
+	let random = Math.floor(Math.random() * 3) + 1;
 
 	let user = message.mentions.members.first();
 

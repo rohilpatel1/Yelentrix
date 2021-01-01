@@ -1,6 +1,7 @@
 [
   {
-    "version": "5.0",
-    "description": "This update provides a huge overhaul to the entire bot; it provides a nicer and faster backend, a new 'give' command, a new help UI, more developer commands, and in general a much more friendly look. In addition, we also have a new sabotage command where you can risk your own money for stealing other peoples! A new uptime feature was added with this to tell the client everything about the bot! Lastly, we also updated the command to insult people. Finally, there are definitely more updates coming in version 5.0, and definitely expect a 5.1, since these changes relate to everything!"
+    "version": "5.0.2",
+		"botUpdated": "Fri Dec 29",
+    "description": "There were some bug fixes made to the help embed, as well as an update to the backend for some more code; to make it more efficient."
   }
 ]
