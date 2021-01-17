@@ -30,6 +30,10 @@ const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
 			.addField('Most Recent Activity', doc.data().lastDailyReward)
 			.setFooter('Yelentrix', captureImage('yelentrix2'))
 			.setTimestamp()
+
+		if (doc.data().bank != null) {
+			meEmbed.addField('Bank', `$${addCommas(doc.data().bank)}/$${addCommas(doc.data().bankCapacity)}`);
+		}
 	} else {
 		meEmbed.setDescription('You have not registered for *The Money Game*! To start, type `./init`');
 	}

@@ -2,7 +2,7 @@ const admin = require('firebase-admin');
 
 const prefix = './';
 
-let commandNames = ['help', 'me', 'user', 'version', 'insult', 'init', 'daily', 'upgrade', 'invite', 'trivia', 'leaderboard', 'give', 'sabotage'];
+let commandNames = ['help', 'me', 'user', 'version', 'insult', 'init', 'daily', 'upgrade', 'invite', 'trivia', 'leaderboard', 'give', 'sabotage', 'bank'];
 
 let commandData = [];
 

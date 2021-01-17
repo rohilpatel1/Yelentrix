@@ -1,7 +1,7 @@
 [
   {
-    "version": "5.0.2",
-		"botUpdated": "Fri Dec 29",
-    "description": "There were some bug fixes made to the help embed, as well as an update to the backend for some more code; to make it more efficient."
+    "version": "5.1.2",
+		"botUpdated": "Sat Jan 16",
+    "description": "This update brings bug fixes to the watching entry to the stats command. This update also brings support for the me & user command to show info for any user's bank account. "
   }
 ]

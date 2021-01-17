@@ -45,7 +45,11 @@ const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
 		meEmbed
 			.addField('Money', `$${addCommas(doc.data().money)}`)
 			.addField('Paycheck', `$${addCommas(doc.data().moneyPerDay)}/day`)
-			.addField('Most Recent Activity', doc.data().lastDailyReward)
+			.addField('Most Recent Activity', doc.data().lastDailyReward);
+
+		if (doc.data().bank != null) {
+			meEmbed.addField('Bank', `$${addCommas(doc.data().bank)}`);
+		}
 	} else {
 		meEmbed.setDescription('This user has not registered for *The Money Game*!');
 	}

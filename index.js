@@ -35,10 +35,11 @@ client.on('message', message => {
 			const duration = moment.duration(client.uptime).format(" D [days], H [hours], m [minutes], s [seconds]");
 
 			let users = 0;
+			
     	for (let g of client.guilds.cache.array()) {
-				users += g.memberCount;
+    		if (typeof g.memberCount == 'number') users += g.memberCount;
 			}
-
+			
 			const statEmbed = new MessageEmbed()
 				.setTitle('Yelentrix Statistics')
 				.addField('Uptime', duration)
