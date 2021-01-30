@@ -37,8 +37,6 @@ const run = async (message, args, MessageEmbed, _, args2, DMChannel) => {
 	let errEmbed = new MessageEmbed()
 		.setTitle('Uh Oh!')
 		.setColor(color)
-		.setFooter('Yelentrix', captureImage('yelentrix'))
-		.setTimestamp()
 
 		if (!user) return;
 
@@ -73,10 +71,8 @@ const run = async (message, args, MessageEmbed, _, args2, DMChannel) => {
 							const successEmbed = new MessageEmbed()
 								.setTitle('You Sabotaged Successfully!')
 								.setDescription(`You sabotaged <@${user.id}> and stole some of their money!`)
-								.setTimestamp()
 								.addField('Your Earnings', `+${args[1]}`)
 								.setColor(color)
-								.setFooter('Yelentrix', captureImage('yelentrix2'))
 
 							message.channel.send(successEmbed);
 						} else {
@@ -125,10 +121,8 @@ const run = async (message, args, MessageEmbed, _, args2, DMChannel) => {
 							const successEmbed = new MessageEmbed()
 								.setTitle('Nice Try!')
 								.setDescription(`You failed sabotage <@${user.id}> and ended up paying them some money!`)
-								.setTimestamp()
 								.addField('Your Loss', `-${args[1]}`)
 								.setColor(color)
-								.setFooter('Yelentrix', captureImage('yelentrix2'))
 
 							message.channel.send(successEmbed);
 						} else {

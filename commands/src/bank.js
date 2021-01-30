@@ -47,9 +47,7 @@ const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
 			.addField('./bank expand', 'Shows bank expansion plan')
 			.addField('./bank withdraw [amount]', 'Withdraws a certain amount of money')
 			.addField('./bank deposit [amount]', 'Deposits money into your bank')
-			.setTimestamp()
 			.setColor(color)
-			.setFooter('Yelentrix', captureImage('yelentrix2'))
 
 		return message.channel.send(bankPrev);
 	}
@@ -70,9 +68,8 @@ const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
 				let successsEmbed = new MessageEmbed()
 					.setTitle('Congratulations!')
 					.setDescription('You have successfully upgraded your bank! Now you can deposit more money to keep your money safe!')
-					.setTimestamp()
 					.setColor(color)
-					.setFooter('Yelentrix', captureImage('yelentrix2'))
+
 
 					return message.channel.send(successsEmbed);
 			}
@@ -85,9 +82,7 @@ const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
 					let confirmEmbed = new MessageEmbed()
 						.setTitle('Upgrade Your Bank Capacity')
 						.setDescription(`You have $${addCommas(money)}, and you have enough to upgrade your bank capacity! Pay $${addCommas(upgradeBank)} to do so! Type \`./bank expand confirm\` to upgrade!`)
-						.setTimestamp()
 						.setColor(color)
-						.setFooter('Yelentrix', captureImage('yelentrix2'))
 
 						message.channel.send(confirmEmbed);
 				} else {

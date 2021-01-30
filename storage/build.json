@@ -1,7 +1,7 @@
 [
   {
-    "version": "5.1.2",
-		"botUpdated": "Sat Jan 16",
-    "description": "This update brings bug fixes to the watching entry to the stats command. This update also brings support for the me & user command to show info for any user's bank account. "
+    "version": "5.2",
+		"botUpdated": "Fri Jan 29",
+    "description": "This update brings along a new leaderboard and invite menu. Gain more access to the bot than before, and join our social medias! Expect version 6.0 before April."
   }
 ]

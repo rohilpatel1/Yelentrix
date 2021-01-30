@@ -25,8 +25,6 @@ const run = (message, args, MessageEmbed, commandData, args2, DMChannel) => {
 		.addField('dev', '```Shows developer commands```')
 		.addField('other', '```Shows extra commands```')
 		.setColor(color)
-		.setFooter('Yelentrix', captureImage('yelentrix2'))
-		.setTimestamp()
 		
 
 	//commandData.splice(0, 1);

@@ -1,21 +1,21 @@
 const { color } = require('../../storage/globals.json');
 
-const captureImage = require('./helpers/captureImage');
+function captureImage(name) {
+	return `https://Hosting.rohilpatel.repl.co/${name}.jpeg`;
+};
 
 const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
   if (message.channel instanceof DMChannel) {
-	  return message.channel
+	  message.channel
 			.send('Commands for this bot may not be used inside of a Direct Messages!')
 			.catch(console.error);
+	  return;
 	}
 
 	let InviteEmbed = new MessageEmbed()
 	  .setTitle('Invite Yelentrix to Your Server!')
 		.setColor(color)
-		.setDescription('Use the following link to invite Yelentrix to your server!')
-		.addField('Link', 'https://discord.com/api/oauth2/authorize?client_id=777667558169116703&permissions=130048&scope=bot')
-		.setFooter('Yelentrix', captureImage('yelentrix2'))
-		.setTimestamp()
+		.setDescription('**Invite Link**: [Link](https://discord.com/api/oauth2/authorize?client_id=777667558169116703&permissions=130048&scope=bot) \n\n **Discord Server**: [Invite](https://discord.gg/hG98v2uf6S) \n\n **Github**: [Repository](https://github.com/rohilpatel1/Yelentrix)')
 
 	message.channel.send(InviteEmbed);
 };

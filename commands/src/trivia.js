@@ -21,8 +21,6 @@ const run = async (message, args, MessageEmbed, _, args2, DMChannel) => {
 			.setDescription(`Deals trivia to anyone who wants more money
 			\`\`\`css\n ./trivia [difficulty] \`\`\`
 			`)
-			.setFooter('Yelentrix', captureImage('yelentrix2'))
-			.setTimestamp()
 
 		return message.channel.send(triviaEmbed);
 	}

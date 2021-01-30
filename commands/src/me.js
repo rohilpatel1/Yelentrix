@@ -28,8 +28,6 @@ const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
 			.addField('Money', `$${addCommas(doc.data().money)}`)
 			.addField('Paycheck', `$${addCommas(doc.data().moneyPerDay)}/day`)
 			.addField('Most Recent Activity', doc.data().lastDailyReward)
-			.setFooter('Yelentrix', captureImage('yelentrix2'))
-			.setTimestamp()
 
 		if (doc.data().bank != null) {
 			meEmbed.addField('Bank', `$${addCommas(doc.data().bank)}/$${addCommas(doc.data().bankCapacity)}`);

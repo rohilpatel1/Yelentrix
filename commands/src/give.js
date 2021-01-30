@@ -34,8 +34,6 @@ const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
 	let errEmbed = new MessageEmbed()
 		.setTitle('Uh Oh!')
 		.setColor(color)
-		.setTimestamp()
-		.setFooter('Yelentrix', captureImage('yelentrix2'))
 
 	let user = message.mentions.members.first();
 
@@ -64,11 +62,9 @@ const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
 					const successEmbed = new MessageEmbed()
 						.setTitle('Success!')
 						.setDescription(`The transaction between you and <@${user.id}> was successful!`)
-						.setTimestamp()
 						.addField('Your Balance', `${personalDoc.data().money} → **${personalDoc.data().money - parseInt(args[1])}**`)
 						.addField(`${user.user.username}'s Balance`, `${userDoc.data().money} → **${userDoc.data().money + parseInt(args[1])}**`)
 						.setColor(color)
-						.setFooter('Yelentrix', captureImage('yelentrix2'))
 
 					message.channel.send(successEmbed);
 				} else {

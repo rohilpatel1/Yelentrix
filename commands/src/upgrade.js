@@ -18,8 +18,6 @@ const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
 		const upgradePreview = new MessageEmbed()
 			.setTitle('Personal Upgrade Plans')
 			.setColor(color)
-			.setFooter('Yelentrix', captureImage('yelentrix2'))
-			.setTimestamp();
 
 		let doc = await db.collection('users').doc(`${message.author.id}`).get().catch(console.log);
 

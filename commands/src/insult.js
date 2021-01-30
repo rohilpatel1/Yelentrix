@@ -17,8 +17,6 @@ const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
 			\`\`\`css\n ./insult [user] [insult] \`\`\`
 			`)
       .setColor(color)
-			.setFooter('Yelentrix', captureImage('yelentrix2'))
-			.setTimestamp();
 
     return message.channel.send(insultE);
   }

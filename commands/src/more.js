@@ -17,8 +17,6 @@ const run = (message, args, MessageEmbed, _, args2, DMChannel) => {
 	  .addField('./version', 'Gives version of bot')
 	  .addField('./invite', 'Provides invite to bot')
 	  .setColor(color)
-	  .setTimestamp()
-	  .setFooter('Yelentrix', captureImage('yelentrix2'))
 	
 	message.channel.send(moreEmbed);
 };

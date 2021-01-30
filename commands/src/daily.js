@@ -41,8 +41,6 @@ const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
 				.setTitle(`Daily Reward`)
 				.setColor(color)
 				.setDescription(`Congrats! You now have $${addCommas(money + moneyPerDay)}!`)
-				.setFooter('Yelentrix', captureImage('yelentrix2'))
-				.setTimestamp();
 
 			message.channel.send(embed);
 		}

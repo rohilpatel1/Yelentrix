@@ -28,8 +28,6 @@ const run = async(message, args, MessageEmbed, _, args2, DMChannel) => {
 				`
 			)
 			.setColor(color)
-			.setTimestamp()
-			.setFooter('Yelentrix', captureImage('yelentrix2'))
 		message.channel.send(userPreview);
 
 		return;
